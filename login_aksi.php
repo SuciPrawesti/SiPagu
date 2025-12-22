@@ -24,11 +24,11 @@ $_SESSION['role_user']=$row['role_user'];
 $_SESSION['status_user']="login";
 
 if($_SESSION['role_user'] == 'admin'){
-    header("location: admin/index.php");
+    header("location: dist/admin/index.php");
 }else if($_SESSION['role_user'] == 'koordinator'){
-    header("location: koordinator/index.php");
+    header("location: dist/koordinator/index.php");
 }else if($_SESSION['role_user'] == 'staff'){
-    header("location: staff/index.php");
+    header("location: dist/staff/index.php");
 }
 }
 // else{
