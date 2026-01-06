@@ -1,12 +1,12 @@
-                    <?php
-        include 'koneksi.php';
-                    ?>
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SiPagu | Sistem Penghonoran Fakultas</title>
+    <title>Login - SiPagu | Sistem informasi pengelolaan anggaran dan uang honor</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,8 +14,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <link rel="stylesheet" href="./dist/assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
 
+    <!-- favicon include -->
+    <?php include './includes/header.php'; ?>
 </head>
 <body>
     <!-- Back to Top Button -->
@@ -30,8 +32,16 @@
     <nav class="nav" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <a href="index.html" class="logo">
-                    Si<span>Pagu</span>
+                <!-- Logo dengan gambar -->
+                <a href="index.php" class="logo">
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="./assets/img/logoSiPagu.png" alt="SiPagu Logo" class="logo-img">
+                        </div>
+                        <div class="logo-text">
+                            Si<span>Pagu</span>
+                        </div>
+                    </div>
                 </a>
                 
                 <!-- Modern Hamburger Menu -->
@@ -46,7 +56,7 @@
                 
                 <!-- Navigation Links -->
                 <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">
+                    <a href="index.php" class="nav-link">
                         <i class="fas fa-home"></i>
                         Kembali ke Beranda
                     </a>
@@ -58,30 +68,17 @@
     <!-- Main Login Content -->
     <main class="login-main">
         <div class="login-card fade-in">
-            <!-- Login Header -->
+            <!-- Login Header dengan Logo Foto -->
             <div class="login-header">
-                <div class="login-logo">
-                    Si<span>Pagu</span>
+                <!-- Logo Foto saja (tanpa teks) -->
+                <div class="login-logo-container">
+                    <div class="login-logo-image">
+                        <img src="assets/img/logoSiPagu.png" alt="SiPagu Logo" class="login-logo-img">
+                    </div>
                 </div>
-                <h1>Masuk ke Sistem</h1>
-                <p>Akses sistem terintegrasi untuk pengelolaan honor fakultas</p>
+                <h1 class="login-title">Masuk ke Sistem</h1>
+                <p class="login-subtitle">Akses sistem terintegrasi untuk pengelolaan honor fakultas</p>
             </div>
-
-                    <?php
-        include 'koneksi.php';
-            
-        if(isset($_GET['pesan'])){
-            if($_GET['pesan']=='gagal'){
-                echo '<div class="alert alert-danger">Login gagal! Periksa NPP dan password anda.</div>';
-            } else if ($_GET['pesan']=='logout'){
-                echo '<div class="alert alert-info">Berhasil logout!</div>';
-            } else if ($_GET['pesan']=='belum_login'){
-                echo '<div class="alert alert-warning">Silakan login terlebih dahulu.</div>';
-            }
-        }
-        ?>
-
-
             
             <!-- Login Form -->
             <div class="login-form">
@@ -91,7 +88,7 @@
                         <label for="npp" class="form-label">NPP</label>
                         <div class="input-group">
                             <div class="input-icon">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-user"></i>
                             </div>
                             <input type="text" name="npp_user" class="form-control" placeholder="masukkan NPP" required>
                         </div>
@@ -137,7 +134,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <a href="index.html" class="footer-logo">
+                    <a href="index.php" class="footer-logo">
                         Si<span>Pagu</span>
                     </a>
                     <p class="footer-desc">Sistem Penghonoran Fakultas Terintegrasi yang menyelesaikan masalah sinkronisasi penghonoran dengan standar universitas dan perhitungan pajak yang akurat.</p>
@@ -161,10 +158,10 @@
                 <div>
                     <h4 class="footer-links-title">Fitur Utama</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html#features"><i class="fas fa-circle" style="color: var(--info);"></i> Standarisasi Pagu</a></li>
-                        <li><a href="index.html#features"><i class="fas fa-circle" style="color: var(--danger);"></i> Kalkulasi Pajak</a></li>
-                        <li><a href="index.html#features"><i class="fas fa-circle" style="color: var(--success);"></i> Distribusi Digital</a></li>
-                        <li><a href="index.html#features"><i class="fas fa-circle" style="color: var(--purple);"></i> Pelaporan</a></li>
+                        <li><a href="index.php#features"><i class="fas fa-circle" style="color: var(--info);"></i> Standarisasi Pagu</a></li>
+                        <li><a href="index.php#features"><i class="fas fa-circle" style="color: var(--danger);"></i> Kalkulasi Pajak</a></li>
+                        <li><a href="index.php#features"><i class="fas fa-circle" style="color: var(--success);"></i> Distribusi Digital</a></li>
+                        <li><a href="index.php#features"><i class="fas fa-circle" style="color: var(--purple);"></i> Pelaporan</a></li>
                     </ul>
                 </div>
                 
@@ -194,6 +191,107 @@
             </div>
         </div>
     </footer>
-        <script src="./dist/assets/js/custom.js"></script>
+
+    <script src="assets/js/landing.js"></script>
+    <script>
+        // Pastikan DOM sudah sepenuhnya dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Login Page');
+            
+            // Toggle password visibility
+            const toggleBtn = document.getElementById('togglePassword');
+            
+            if (toggleBtn) {
+                console.log('Toggle button found');
+                
+                toggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Toggle button clicked');
+                    
+                    const passwordInput = document.getElementById('password');
+                    const eyeIcon = this.querySelector('i');
+                    
+                    if (passwordInput) {
+                        console.log('Password input found:', passwordInput.type);
+                        
+                        if (passwordInput.type === 'password') {
+                            passwordInput.type = 'text';
+                            eyeIcon.classList.remove('fa-eye');
+                            eyeIcon.classList.add('fa-eye-slash');
+                            console.log('Password changed to text');
+                        } else {
+                            passwordInput.type = 'password';
+                            eyeIcon.classList.remove('fa-eye-slash');
+                            eyeIcon.classList.add('fa-eye');
+                            console.log('Password changed to password');
+                        }
+                    } else {
+                        console.error('Password input not found!');
+                    }
+                });
+            } else {
+                console.error('Toggle button not found!');
+            }
+            
+            // Optional: Form submission handling
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    const nppInput = document.getElementById('npp');
+                    const passwordInput = document.getElementById('password');
+                    
+                    if (!nppInput.value.trim()) {
+                        e.preventDefault();
+                        alert('Silakan masukkan NPP');
+                        nppInput.focus();
+                        return false;
+                    }
+                    
+                    if (!passwordInput.value.trim()) {
+                        e.preventDefault();
+                        alert('Silakan masukkan kata sandi');
+                        passwordInput.focus();
+                        return false;
+                    }
+                    
+                    // Menampilkan loading state
+                    const loginButton = document.getElementById('loginButton');
+                    if (loginButton) {
+                        loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+                        loginButton.disabled = true;
+                    }
+                });
+            }
+        });
+        
+        // Fallback jika DOMContentLoaded tidak terpanggil
+        window.addEventListener('load', function() {
+            console.log('Window loaded');
+            
+            // Jika toggle button belum punya event listener, tambahkan lagi
+            const toggleBtn = document.getElementById('togglePassword');
+            if (toggleBtn && !toggleBtn.hasAttribute('data-listener-added')) {
+                toggleBtn.setAttribute('data-listener-added', 'true');
+                
+                toggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const passwordInput = document.getElementById('password');
+                    const eyeIcon = this.querySelector('i');
+                    
+                    if (passwordInput && eyeIcon) {
+                        if (passwordInput.type === 'password') {
+                            passwordInput.type = 'text';
+                            eyeIcon.className = 'fas fa-eye-slash';
+                        } else {
+                            passwordInput.type = 'password';
+                            eyeIcon.className = 'fas fa-eye';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
